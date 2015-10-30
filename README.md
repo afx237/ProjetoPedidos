@@ -13,3 +13,5 @@ Sync para sincronizar com o todo.
 
 # Branches
 Branches são como fragmentações do projeto principal, podem ser usadas para testar algo sem precisar modificar o master, e se precisar também pode ser implementada ao master.
+
+Para utilizá-la clique no simbolo de um galho no programa, ao lado do nome da branch.
