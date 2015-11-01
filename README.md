@@ -12,6 +12,6 @@ Depois é só clicar em "Commit to (branch)" e depois em "Sync" para sincronizar
 Sync para sincronizar com o todo.
 
 # Fork
-Branches são como fragmentações do projeto principal, podem ser usadas para testar algo sem precisar modificar o master, e se precisar também pode ser implementada ao master.
+Forks são como fragmentações do projeto principal, podem ser usadas para testar algo sem precisar modificar o master branch, e se precisar também pode ser implementada ao master.
 
-Para criar uma branch clique no simbolo de um galho na parte de cima do programa, edite da mesma maneira que a master.
+Para criar uma fork clique no simbolo de um galho na parte de cima do programa, edite da mesma maneira que a master.
