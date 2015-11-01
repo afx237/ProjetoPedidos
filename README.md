@@ -11,7 +11,7 @@ Editem normalmente os arquivos como se estivessem em sua máquina, após a ediç
 Depois é só clicar em "Commit to (branch)" e depois em "Sync" para sincronizar as mudanças para todos, o mesmo também deverá ser feito toda vez que alguém modificar algo. 
 Sync para sincronizar com o todo.
 
-# Branches
+# Fork
 Branches são como fragmentações do projeto principal, podem ser usadas para testar algo sem precisar modificar o master, e se precisar também pode ser implementada ao master.
 
 Para criar uma branch clique no simbolo de um galho na parte de cima do programa, edite da mesma maneira que a master.
