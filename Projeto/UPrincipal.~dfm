@@ -1,6 +1,6 @@
 object FPrincipal: TFPrincipal
-  Left = 182
-  Top = 124
+  Left = 537
+  Top = 263
   Width = 785
   Height = 461
   Align = alCustom
@@ -146,13 +146,79 @@ object FPrincipal: TFPrincipal
     Width = 769
     Height = 345
     Align = alCustom
-    DataSource = DM_Vendas.DSClientes
+    DataSource = DM_Vendas.DSPedidosMestre
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'MS Sans Serif'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Ped_Emp'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Filial'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Num'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Cliente'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_NatOper'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_DataEntrega'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Vendedor'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_CondPgto'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Situacao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_ViaTransp'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Transportadora'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Total'
+        Visible = True
+      end>
   end
   object StatusBar1: TStatusBar
     Left = 0

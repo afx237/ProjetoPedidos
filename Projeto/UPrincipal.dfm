@@ -1,6 +1,6 @@
 object FPrincipal: TFPrincipal
-  Left = 182
-  Top = 124
+  Left = 625
+  Top = 249
   Width = 785
   Height = 461
   Align = alCustom
