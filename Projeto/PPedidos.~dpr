@@ -1,0 +1,19 @@
+program PPedidos;
+
+uses
+  Forms,
+  UPrincipal in 'UPrincipal.pas' {FPrincipal},
+  UDataModuleNovo in 'Bancos do projeto\UDataModuleNovo.pas' {DM_Vendas: TDataModule},
+  UAdicionar in 'UAdicionar.pas' {FAdicionar},
+  UAdicionaNfiscal in '..\..\ProjetoPedidos\Projeto\UAdicionaNfiscal.pas' {FNFiscal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFPrincipal, FPrincipal);
+  Application.CreateForm(TDM_Vendas, DM_Vendas);
+  Application.CreateForm(TFAdicionar, FAdicionar);
+  Application.CreateForm(TFNFiscal, FNFiscal);
+  Application.Run;
+end.

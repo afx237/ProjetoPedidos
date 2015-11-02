@@ -1,7 +1,7 @@
 object DM_Vendas: TDM_Vendas
   OldCreateOrder = False
-  Left = 632
-  Top = 114
+  Left = 967
+  Top = 123
   Height = 502
   Width = 735
   object TblAgenciaBancaria: TTable

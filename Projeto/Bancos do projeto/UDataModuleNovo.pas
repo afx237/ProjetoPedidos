@@ -1,0 +1,205 @@
+unit UDataModuleNovo;
+
+interface
+
+uses
+  SysUtils, Classes, DB, DBTables;
+
+type
+  TDM_Vendas = class(TDataModule)
+    TblAgenciaBancaria: TTable;
+    TblBanco: TTable;
+    TblClientes: TTable;
+    TblCond_Pgto: TTable;
+    TblEmpresa: TTable;
+    TblEstado: TTable;
+    TblFiliais: TTable;
+    TblNatureza_Operacao: TTable;
+    TblBNFDetalhe: TTable;
+    TblNFMestre: TTable;
+    TblPedidosDetalhe: TTable;
+    TblPedidosMestre: TTable;
+    TblProduto: TTable;
+    TblTransportadora: TTable;
+    TblUnid_de_Medida: TTable;
+    TblVendedores: TTable;
+    TblVia_Transporte: TTable;
+    DSAgenciaBancaria: TDataSource;
+    DSBanco: TDataSource;
+    DSClientes: TDataSource;
+    DSCond_Pgto: TDataSource;
+    DSEmpresa: TDataSource;
+    DSEstado: TDataSource;
+    DSFiliais: TDataSource;
+    DSNatureza_Operacao: TDataSource;
+    DSNFDetalhe: TDataSource;
+    DSNFMestre: TDataSource;
+    DSPedidosDetalhe: TDataSource;
+    DSPedidosMestre: TDataSource;
+    DSProduto: TDataSource;
+    DSTransportadora: TDataSource;
+    DSUnid_de_Medida: TDataSource;
+    DSVendedores: TDataSource;
+    DSVia_Transporte: TDataSource;
+    TblVia_TransporteVtr_Cod: TFloatField;
+    TblVia_TransporteVtr_Descricao: TStringField;
+    TblUnid_de_MedidaUnm_Cod: TStringField;
+    TblUnid_de_MedidaUnm_Descricao: TStringField;
+    TblProdutoPro_Empresa: TStringField;
+    TblProdutoPro_Fil: TStringField;
+    TblProdutoPro_Cod: TStringField;
+    TblProdutoPro_PesoLiquido: TFloatField;
+    TblProdutoPro_PesoBruto: TFloatField;
+    TblProdutoPro_EstoqueInicial: TFloatField;
+    TblProdutoPro_EstoqueEntrada: TFloatField;
+    TblProdutoPro_EstoqueSaida: TFloatField;
+    TblProdutoPro_EstoqueAlocado: TFloatField;
+    TblProdutoPro_Descricao: TStringField;
+    TblProdutoPro_UnidadeMedida: TStringField;
+    TblProdutoPro_Ipi: TFloatField;
+    TblProdutoPro_Preco: TCurrencyField;
+    TblProdutoPro_EstoqueFinal: TFloatField;
+    TblProdutoPro_ValorDisponivel: TFloatField;
+    TblNatureza_OperacaoNat_codnatoperacao: TFloatField;
+    TblNatureza_OperacaoNat_descnatoperacao: TStringField;
+    TblBNFDetalheNfd_Empresa: TStringField;
+    TblBNFDetalheNfd_Filial: TStringField;
+    TblBNFDetalheNfd_Fatura: TFloatField;
+    TblBNFDetalheNfd_CodProd: TStringField;
+    TblBNFDetalheNfd_Quant: TFloatField;
+    TblBNFDetalheNfd_PrcUnit: TCurrencyField;
+    TblBNFDetalheNfd_Desconto: TCurrencyField;
+    TblBNFDetalheNfd_Total: TCurrencyField;
+    TblBNFDetalheNfd_ValorIcms: TCurrencyField;
+    TblBNFDetalheNfd_VrLiquidoTotal: TCurrencyField;
+    TblBNFDetalheNfd_VrIpi: TCurrencyField;
+    TblNFMestreNfm_Emp: TStringField;
+    TblNFMestreNfm_Filial: TStringField;
+    TblNFMestreNfm_Fatura: TFloatField;
+    TblNFMestreNfm_ViaTransp: TFloatField;
+    TblNFMestreNfm_Transportadora: TFloatField;
+    TblNFMestreNfm_NatOper: TFloatField;
+    TblNFMestreNfm_DataPedido: TDateField;
+    TblNFMestreNfm_DataEntrega: TDateField;
+    TblNFMestreNfm_CondPgto: TStringField;
+    TblNFMestreNfm_Cliente: TStringField;
+    TblNFMestreNfm_Vendedor: TFloatField;
+    TblNFMestreNfm_TotalNota: TCurrencyField;
+    TblNFMestreNfm_TotalIcms: TCurrencyField;
+    TblNFMestreNfm_TotalBruto: TCurrencyField;
+    TblNFMestreNfm_TotalDesconto: TCurrencyField;
+    TblNFMestreNfm_TotalIPI: TCurrencyField;
+    TblNFMestreNfm_Situacao: TStringField;
+    TblNFMestreNfm_Impressa: TBooleanField;
+    TblNFMestreNfm_Pedido: TFloatField;
+    TblPedidosDetalhePed_Emp: TStringField;
+    TblPedidosDetalhePed_Filial: TStringField;
+    TblPedidosDetalhePed_Num: TFloatField;
+    TblPedidosDetalhePed_Produto: TStringField;
+    TblPedidosDetalhePed_Qtde: TFloatField;
+    TblPedidosDetalhePed_Preco_Uni: TCurrencyField;
+    TblPedidosDetalhePed_Desc: TCurrencyField;
+    TblPedidosDetalhePed_Total: TCurrencyField;
+    TblPedidosDetalhePed_ICMS: TCurrencyField;
+    TblPedidosMestrePed_Emp: TStringField;
+    TblPedidosMestrePed_Filial: TStringField;
+    TblPedidosMestrePed_Num: TFloatField;
+    TblPedidosMestrePed_Cliente: TFloatField;
+    TblPedidosMestrePed_NatOper: TFloatField;
+    TblPedidosMestrePed_Data: TDateField;
+    TblPedidosMestrePed_DataEntrega: TDateField;
+    TblPedidosMestrePed_Vendedor: TFloatField;
+    TblPedidosMestrePed_CondPgto: TStringField;
+    TblPedidosMestrePed_Situacao: TStringField;
+    TblPedidosMestrePed_ViaTransp: TFloatField;
+    TblPedidosMestrePed_Transportadora: TFloatField;
+    TblPedidosMestrePed_Total: TCurrencyField;
+    TblAgenciaBancariaAgn_CodBan: TStringField;
+    TblAgenciaBancariaAgn_Cod: TStringField;
+    TblAgenciaBancariaAgn_Descr: TStringField;
+    TblBancoBco_Cod: TStringField;
+    TblBancoBco_Nome: TStringField;
+    TblEstadoEst_Sigla: TStringField;
+    TblEstadoEst_Nome: TStringField;
+    TblCond_PgtoCond_CodCondPag: TStringField;
+    TblCond_PgtoCond_Numparcelas: TFloatField;
+    TblCond_PgtoCond_Dias: TFloatField;
+    TblCond_PgtoCond_Ent_SemEnt: TBooleanField;
+    TblCond_PgtoCond_Descricao: TStringField;
+    TblClientesCli_CodEmp: TStringField;
+    TblClientesCli_CodFil: TStringField;
+    TblClientesCli_Cod: TFloatField;
+    TblClientesCli_Razao_Nome: TStringField;
+    TblClientesCli_Cnpj_Cpf: TFloatField;
+    TblClientesCli_InscEst: TStringField;
+    TblClientesCli_Endereco: TStringField;
+    TblClientesCli_Cep: TFloatField;
+    TblClientesCli_Bairro: TStringField;
+    TblClientesCli_Cidade: TStringField;
+    TblClientesCli_Uf: TStringField;
+    TblClientesCli_Fone: TFloatField;
+    TblClientesCli_LimCredito: TCurrencyField;
+    TblClientesCli_LimDisponivel: TCurrencyField;
+    TblClientesCli_DataInc: TDateField;
+    TblClientesCli_Email: TStringField;
+    TblClientesCli_Banco: TStringField;
+    TblEmpresaEmp_Cod: TStringField;
+    TblEmpresaEmp_RazaoSocial: TStringField;
+    TblEmpresaEmp_Cnpj: TFloatField;
+    TblEmpresaEmp_InscrEst: TStringField;
+    TblEmpresaEmp_Endereco: TStringField;
+    TblEmpresaEmp_Cep: TFloatField;
+    TblEmpresaEmp_Bairro: TStringField;
+    TblEmpresaEmp_Cidade: TStringField;
+    TblEmpresaEmp_Uf: TStringField;
+    TblEmpresaEmp_Fone: TFloatField;
+    TblFiliaisFil_CodEmp: TStringField;
+    TblFiliaisFil_Cod: TStringField;
+    TblFiliaisFil_RazaoSocial: TStringField;
+    TblFiliaisFil_Cnpj: TFloatField;
+    TblFiliaisFil_InscEst: TStringField;
+    TblFiliaisFil_Endereco: TStringField;
+    TblFiliaisFil_Bairro: TStringField;
+    TblFiliaisFil_Cidade: TStringField;
+    TblFiliaisFil_Fone: TFloatField;
+    TblFiliaisFil_Cep: TFloatField;
+    TblFiliaisFil_Uf: TStringField;
+    TblTransportadoraTra_Cod: TFloatField;
+    TblTransportadoraTra_RazaoSocial: TStringField;
+    TblTransportadoraTra_Cnpj: TFloatField;
+    TblTransportadoraTra_InscEst: TStringField;
+    TblTransportadoraTra_Contato: TStringField;
+    TblTransportadoraTra_Bairro: TStringField;
+    TblTransportadoraTra_Fone: TFloatField;
+    TblTransportadoraTra_Cidade: TStringField;
+    TblTransportadoraTra_Uf: TStringField;
+    TblTransportadoraTra_Endereco: TStringField;
+    TblTransportadoraTra_CEP: TFloatField;
+    TblVendedoresVen_codvendedor: TFloatField;
+    TblVendedoresVen_nome: TStringField;
+    TblVendedoresVen_endereco: TStringField;
+    TblVendedoresVen_cidade: TStringField;
+    TblVendedoresVen_fone: TFloatField;
+    TblVendedoresVen_cep: TFloatField;
+    TblVendedoresVen_estado: TStringField;
+    TblVendedoresVen_datainc: TDateField;
+    TblVendedoresVen_datanasc: TDateField;
+    TblVendedoresVen_email: TStringField;
+    tblConta: TTable;
+    dtsrcConta: TDataSource;
+    tblDuplicata: TTable;
+    dtsrcDuplicata: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM_Vendas: TDM_Vendas;
+
+implementation
+
+{$R *.dfm}
+
+end.

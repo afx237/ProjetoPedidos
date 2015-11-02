@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, ToolWin, ImgList, Grids, DBGrids, UDataModuleNovo,
-  StdCtrls, UAdicionar, UAdicionaNfiscal;
+  StdCtrls, UAdicionar;
 
 type
   TFPrincipal = class(TForm)
