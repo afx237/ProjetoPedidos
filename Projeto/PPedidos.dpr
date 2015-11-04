@@ -1,10 +1,10 @@
-program PjPedidos;
+program PPedidos;
 
 uses
   Forms,
-  UDataModuleNovo in 'UDataModuleNovo.pas' {DM_Vendas: TDataModule},
-  UAdicionar in 'UAdicionar.pas' {FAdicionar},
-  UPrincipal in 'UPrincipal.pas' {FPrincipal};
+  UPrincipal in 'UPrincipal.pas' {FPrincipal},
+  UDataModuleNovo in 'Bancos do projeto\UDataModuleNovo.pas' {DM_Vendas: TDataModule},
+  UAdicionar in 'UAdicionar.pas' {FAdicionar};
 
 {$R *.res}
 
