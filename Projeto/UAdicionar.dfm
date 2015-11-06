@@ -2,7 +2,7 @@ object FAdicionar: TFAdicionar
   Left = 272
   Top = 179
   Width = 751
-  Height = 343
+  Height = 357
   Caption = 'Pedido - Adicionar/Editar'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +16,7 @@ object FAdicionar: TFAdicionar
   object Label1: TLabel
     Left = 26
     Top = 14
-    Width = 45
+    Width = 55
     Height = 16
     Caption = 'Empresa'
     Font.Charset = ANSI_CHARSET
@@ -29,7 +29,7 @@ object FAdicionar: TFAdicionar
   object Label2: TLabel
     Left = 226
     Top = 14
-    Width = 25
+    Width = 32
     Height = 16
     Caption = 'Filial'
     Font.Charset = ANSI_CHARSET
@@ -42,7 +42,7 @@ object FAdicionar: TFAdicionar
   object Label3: TLabel
     Left = 426
     Top = 14
-    Width = 37
+    Width = 45
     Height = 16
     Caption = 'Cliente'
     Font.Charset = ANSI_CHARSET
@@ -55,7 +55,7 @@ object FAdicionar: TFAdicionar
   object Label4: TLabel
     Left = 26
     Top = 62
-    Width = 51
+    Width = 61
     Height = 16
     Caption = 'Vendedor'
     Font.Charset = ANSI_CHARSET
@@ -68,7 +68,7 @@ object FAdicionar: TFAdicionar
   object Label5: TLabel
     Left = 242
     Top = 62
-    Width = 135
+    Width = 163
     Height = 16
     Caption = 'Condi'#231#245'es de Pagamento'
     Font.Charset = ANSI_CHARSET
@@ -81,7 +81,7 @@ object FAdicionar: TFAdicionar
   object Label6: TLabel
     Left = 26
     Top = 110
-    Width = 115
+    Width = 143
     Height = 16
     Caption = 'Natureza da Opera'#231#227'o'
     Font.Charset = ANSI_CHARSET
@@ -94,7 +94,7 @@ object FAdicionar: TFAdicionar
   object Label7: TLabel
     Left = 258
     Top = 110
-    Width = 81
+    Width = 96
     Height = 16
     Caption = 'Transportadora'
     Font.Charset = ANSI_CHARSET
@@ -107,7 +107,7 @@ object FAdicionar: TFAdicionar
   object Label8: TLabel
     Left = 490
     Top = 110
-    Width = 92
+    Width = 112
     Height = 16
     Caption = 'Via de Transporte'
     Font.Charset = ANSI_CHARSET
@@ -120,7 +120,7 @@ object FAdicionar: TFAdicionar
   object Label9: TLabel
     Left = 200
     Top = 270
-    Width = 55
+    Width = 66
     Height = 16
     Caption = 'Nova Qtde'
     Font.Charset = ANSI_CHARSET
@@ -133,7 +133,7 @@ object FAdicionar: TFAdicionar
   object Label12: TLabel
     Left = 626
     Top = 14
-    Width = 81
+    Width = 99
     Height = 16
     Caption = 'N'#250'mero Pedido'
     Font.Charset = ANSI_CHARSET
@@ -146,7 +146,7 @@ object FAdicionar: TFAdicionar
   object Label13: TLabel
     Left = 458
     Top = 62
-    Width = 64
+    Width = 78
     Height = 16
     Caption = 'Data Pedido'
     Font.Charset = ANSI_CHARSET
@@ -159,7 +159,7 @@ object FAdicionar: TFAdicionar
   object Label14: TLabel
     Left = 586
     Top = 62
-    Width = 68
+    Width = 82
     Height = 16
     Caption = 'Data Entrega'
     Font.Charset = ANSI_CHARSET
@@ -172,7 +172,7 @@ object FAdicionar: TFAdicionar
   object Label11: TLabel
     Left = 464
     Top = 270
-    Width = 14
+    Width = 16
     Height = 16
     Caption = 'R$'
     Font.Charset = ANSI_CHARSET
@@ -186,7 +186,7 @@ object FAdicionar: TFAdicionar
   object Label10: TLabel
     Left = 368
     Top = 270
-    Width = 83
+    Width = 100
     Height = 16
     Caption = 'Total do Pedido'
     Font.Charset = ANSI_CHARSET
@@ -282,7 +282,7 @@ object FAdicionar: TFAdicionar
     Top = 158
     Width = 473
     Height = 97
-    DataSource = DM_Vendas.DSProduto
+    DataSource = DM_Vendas.DSPedidosDetalhe
     TabOrder = 8
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -292,24 +292,32 @@ object FAdicionar: TFAdicionar
     Columns = <
       item
         Expanded = False
-        FieldName = 'Pro_Descricao'
-        Title.Caption = 'Produto'
+        FieldName = 'Ped_Produto'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Pro_UnidadeMedida'
-        Title.Caption = 'Qtde'
+        FieldName = 'Ped_Qtde'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Pro_Preco'
-        Title.Caption = 'Pre'#231'o Unit'
+        FieldName = 'Ped_Preco_Uni'
         Visible = True
       end
       item
         Expanded = False
+        FieldName = 'Ped_Desc'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_Total'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Ped_ICMS'
         Visible = True
       end>
   end
@@ -338,6 +346,7 @@ object FAdicionar: TFAdicionar
     Default = True
     ModalResult = 1
     TabOrder = 12
+    OnClick = BitBtn1Click
     Glyph.Data = {
       42100000424D4210000000000000420000002800000020000000200000000100
       20000300000000100000000000000000000000000000000000000000FF0000FF
@@ -650,5 +659,62 @@ object FAdicionar: TFAdicionar
     Height = 25
     Caption = 'OK'
     TabOrder = 11
+  end
+  object TblPedidosMestre: TTable
+    Active = True
+    DatabaseName = 'Vendas'
+    IndexFieldNames = 'Ped_Emp;Ped_Filial'
+    MasterFields = 'Fil_CodEmp;Fil_Cod'
+    TableName = 'PEDIDOSMESTRE.DB'
+    Left = 680
+    Top = 280
+    object TblPedidosMestrePed_Emp: TStringField
+      FieldName = 'Ped_Emp'
+      Size = 5
+    end
+    object TblPedidosMestrePed_Filial: TStringField
+      FieldName = 'Ped_Filial'
+      Size = 3
+    end
+    object TblPedidosMestrePed_Num: TFloatField
+      FieldName = 'Ped_Num'
+    end
+    object TblPedidosMestrePed_Cliente: TFloatField
+      FieldName = 'Ped_Cliente'
+    end
+    object TblPedidosMestrePed_NatOper: TFloatField
+      FieldName = 'Ped_NatOper'
+    end
+    object TblPedidosMestrePed_Data: TDateField
+      FieldName = 'Ped_Data'
+    end
+    object TblPedidosMestrePed_DataEntrega: TDateField
+      FieldName = 'Ped_DataEntrega'
+    end
+    object TblPedidosMestrePed_Vendedor: TFloatField
+      FieldName = 'Ped_Vendedor'
+    end
+    object TblPedidosMestrePed_CondPgto: TStringField
+      FieldName = 'Ped_CondPgto'
+      Size = 2
+    end
+    object TblPedidosMestrePed_Situacao: TStringField
+      FieldName = 'Ped_Situacao'
+      Size = 1
+    end
+    object TblPedidosMestrePed_ViaTransp: TFloatField
+      FieldName = 'Ped_ViaTransp'
+    end
+    object TblPedidosMestrePed_Transportadora: TFloatField
+      FieldName = 'Ped_Transportadora'
+    end
+    object TblPedidosMestrePed_Total: TCurrencyField
+      FieldName = 'Ped_Total'
+    end
+  end
+  object DSPedidosMestre: TDataSource
+    DataSet = TblPedidosMestre
+    Left = 712
+    Top = 280
   end
 end
