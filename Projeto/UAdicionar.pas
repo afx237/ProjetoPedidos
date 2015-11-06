@@ -40,6 +40,22 @@ type
     BitBtn2: TBitBtn;
     Edit1: TEdit;
     Label10: TLabel;
+    TblPedidosMestre: TTable;
+    TblPedidosMestrePed_Emp: TStringField;
+    TblPedidosMestrePed_Filial: TStringField;
+    TblPedidosMestrePed_Num: TFloatField;
+    TblPedidosMestrePed_Cliente: TFloatField;
+    TblPedidosMestrePed_NatOper: TFloatField;
+    TblPedidosMestrePed_Data: TDateField;
+    TblPedidosMestrePed_DataEntrega: TDateField;
+    TblPedidosMestrePed_Vendedor: TFloatField;
+    TblPedidosMestrePed_CondPgto: TStringField;
+    TblPedidosMestrePed_Situacao: TStringField;
+    TblPedidosMestrePed_ViaTransp: TFloatField;
+    TblPedidosMestrePed_Transportadora: TFloatField;
+    TblPedidosMestrePed_Total: TCurrencyField;
+    DSPedidosMestre: TDataSource;
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,5 +72,10 @@ uses UDataModuleNovo;
 {uses Forms;}
 
 {$R *.dfm}
+
+procedure TFAdicionar.BitBtn1Click(Sender: TObject);
+begin
+  TblPedidosMestre.Post;  
+end;
 
 end.
